@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('atasan_user', function (Blueprint $table) {
+        Schema::create('foto', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
-            $table->foreignId('atasan_id')->constrained('users');
-            $table->smallInteger('level');
+            $table->bigInteger('referensi_id');
+            $table->string('referensi_type');
+            $table->string('file_name');
+            $table->timestamps();
         });
     }
 
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('atasan_user');
+        Schema::dropIfExists('foto');
     }
 };
